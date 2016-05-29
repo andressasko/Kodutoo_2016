@@ -1,0 +1,91 @@
+
+/*
+Validation measures compliance to standards rather than correct functionality. 
+In other words, they are not "errors" but rather areas where they do not comply.
+*/
+.body {
+	overflow-y		: scroll;
+	background		: white;
+}
+
+.panel {
+	border-radius	: 5px;	
+	border			: 1px solid black;
+	margin			: 3%;
+	
+}
+.panel .heading {
+	background		: #0000FF;										
+	border-radius	: 5px 5px 0 0;
+	padding			: 10px 20px;
+}
+.panel .body {
+	background		: #0000FF;											
+	border-radius	: 0 0 5px 5px;
+	padding			: 10px 20px;
+}
+
+.panel:hover {
+	box-shadow		: 0px 0px 12px #666;
+}
+.infopanel {
+	color			: #0000FF;											
+	text-align		: center;
+}
+.li {
+	width			: 50%;
+	float			: left;
+	padding			: 5px 0;
+}
+
+#about {
+	margin-left: 10px;
+}
+
+.body p {				
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+
+#wrap{
+	width: 800px;
+	background: white;
+	margin: auto;
+	overflow: auto;
+	min-height:600px;
+}
+#menu {
+	list-style: none;
+	background: PaleGreen;
+	margin: 0px;
+	padding: 0px;
+	text-align: center;
+}
+#menu li, #menu a {
+	display: inline-block;
+}
+#menu a {
+	padding:5px 20px;
+	color: black;
+	text-decoration: none;
+}
+#menu a:hover {
+	background: Aquamarine;
+	color: DarkSlateGray;
+}
+#content {
+	padding:10px;
+}
+
+.puur h5 {
+	margin: 0px;
+}
+.clear {
+	clear:both;
+}
+
+#mod{
+	color: red;
+	
+	}
