@@ -1,9 +1,4 @@
-
-/*
-Validation measures compliance to standards rather than correct functionality. 
-In other words, they are not "errors" but rather areas where they do not comply.
-*/
-.body {
+body {
 	overflow-y		: scroll;
 	background		: white;
 }
@@ -48,44 +43,43 @@ In other words, they are not "errors" but rather areas where they do not comply.
   left: 10px;
 }
 
-#wrap{
-	width: 800px;
-	background: white;
-	margin: auto;
-	overflow: auto;
-	min-height:600px;
-}
-#menu {
-	list-style: none;
-	background: PaleGreen;
-	margin: 0px;
-	padding: 0px;
-	text-align: center;
-}
-#menu li, #menu a {
-	display: inline-block;
-}
-#menu a {
-	padding:5px 20px;
-	color: black;
-	text-decoration: none;
-}
-#menu a:hover {
-	background: Aquamarine;
-	color: DarkSlateGray;
-}
 #content {
 	padding:10px;
 }
 
-.puur h5 {
-	margin: 0px;
-}
 .clear {
 	clear:both;
 }
 
 #mod{
 	color: red;
-	
 	}
+	
+#hide{
+   display: none; /* onLoad your div will be hidden */
+}
+
+ul {
+  padding:0 0 0 0;
+  margin:0 0 0 0;
+}
+ul li {
+  list-style:none;
+  margin-bottom:25px;
+}
+ul li img {
+  cursor: pointer;
+  height: 450px;
+  width: 600px;
+}
+.controls{
+    width:50px;
+    display:block;
+    font-size:11px;
+    padding-top:8px;
+    font-weight:bold;
+}
+.next {
+    float:right;
+    text-align:right;
+}

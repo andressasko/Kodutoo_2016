@@ -1,11 +1,13 @@
 
 		<div class="container">
 			<div class="panel panel-default">
-				<div class="panel-heading"><a href="?mode=index"title="Esileht"><img src="pic/logo.jpg" alt="logo" height="85" width="150"/> </a><h2>Galerii</h2></div>
+				<div class="panel-heading"><a href="?mode=index" title="Esileht"><img src="pic/logo.jpg" alt="logo" height="85" width="150"/> </a><h2>Galerii</h2></div>
 					<div class="panel-body">
+					
+					<!--
 					<h3>Kutsikad</h3>
 					<div class="col-md-12">
-						<a href="pic/koer2.jpg" title="Bigger picture" target="popup" onclick="window.open('pic/koer2.jpg','kvartira','width=500,height=400')"><img src="pic/koer2.jpg" alt="kutsikas" height="250" width="310"></a> <!--http://stackoverflow.com/questions/26647890/how-to-place-two-image-side-by-side-into-a-div-using-bootstrap--> 
+						<a href="pic/koer2.jpg" title="Bigger picture" target="popup" onclick="window.open('pic/koer2.jpg','kvartira','width=500,height=400')"><img src="pic/koer2.jpg" alt="kutsikas" height="250" width="310"></a>  http://stackoverflow.com/questions/26647890/how-to-place-two-image-side-by-side-into-a-div-using-bootstrap
 					</div>
 					<h3>Vanem Kutsikas</h3>
 					<div class="col-md-12">
@@ -21,5 +23,101 @@
 					</div>
 					<p style="clear: both;">
 					</div>
+					
+					
+					-->
+					
+					 <ul class="first">
+						<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+							<img  src="pic/koer2" alt="kustikas">
+						</li >
+						<li class="clearfix visible-lg-block"></li>
+						<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+							<img  src="pic/koer3" alt="kustikas">
+						</li>
+						<li class="clearfix visible-lg-block"></li>
+						<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+							<img  src="pic/koer4" alt="kustikas">
+						</li>
+						<li class="clearfix visible-lg-block"></li>
+						<li class="col-lg-2 col-md-2 col-sm-3 col-xs-4">
+							<img  src="pic/koer5" alt="kustikas">
+						</li>
+					</ul>
+					
+					
+
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+						<div class="modal-content">
+						  <div class="modal-body">
+						  <div id="myModalLabel">
+						   </div>
+						  </div>
+						</div><!-- /.modal-content -->
+					  </div><!-- /.modal-dialog -->
+					</div><!-- /.modal -->
+					<script>
+						$(document).ready(function(){
+						   $('li img').on('click',function(){
+								var src = $(this).attr('src');
+								var img = '<img src="' + src + '" class="img-responsive"/>';
+								
+								  //Start of new code
+								  var index = $(this).parent('li').index();
+								  var html = '';
+								  html += img;
+								  html += '<div style="height:25px;clear:both;display:block;">';
+								  html += '<a class="controls next" href="'+ (index+2) + '">next &raquo;</a>';
+								  html += '<a class="controls previous" href="' + (index) + '">&laquo; prev</a>';
+								  html += '</div>';
+								  //End of new code
+								
+								$('#myModal').modal();
+								$('#myModal').on('shown.bs.modal', function(){
+									$('#myModal .modal-body').html(img);
+								});
+								$('#myModal').on('hidden.bs.modal', function(){
+									$('#myModal .modal-body').html('');
+								});
+						   });
+						})
+						
+						$(document).on('click', 'a.controls', function(){
+						var index = $(this).attr('href');
+						var src = $('ul.row li:nth-child('+ index +') img').attr('src');
+						$('.modal-body img').attr('src', src);
+						var newPrevIndex = parseInt(index) - 1;
+						var newNextIndex = parseInt(newPrevIndex) + 2;
+						 
+						if($(this).hasClass('previous')){
+							$(this).attr('href', newPrevIndex);
+							$('a.next').attr('href', newNextIndex);
+						}else{
+							$(this).attr('href', newNextIndex);
+							$('a.previous').attr('href', newPrevIndex);
+						}
+						var total = $('ul.row li').length + 1;
+						//hide next button
+						if(total === newNextIndex){
+							$('a.next').hide();
+						}else{
+							$('a.next').show()
+						}
+						//hide previous button
+						if(newPrevIndex === 0){
+							$('a.previous').hide();
+						}else{
+							$('a.previous').show()
+						}
+						
+						$('#myModal').on('shown.bs.modal', function(){
+						$('#myModal .modal-body').html(html);
+						//this will hide or show the right links:
+						$('a.controls').trigger('click');
+						})
+						 return false;
+						});
+					</script>
 			</div>	
-			
+		</div>
